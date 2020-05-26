@@ -21,4 +21,12 @@ public class MicrosoftOnlineAssessmentTest {
         int actualResult = MicrosoftOnlineAssessment.stringWithout_3_consecutiveLetters(str);
         assertEquals(expectedResult, actualResult);
     }
+
+    @Test
+    public void test_min_adj_swap_palindrome() {
+        String str = "ntiin";
+        int expectedResult = 1;
+        int actualResult = MicrosoftOnlineAssessment.min_adj_swap_palindrome(str);
+        assertEquals(expectedResult, actualResult);
+    }
 }
