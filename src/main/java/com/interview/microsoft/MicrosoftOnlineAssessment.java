@@ -1,7 +1,6 @@
 package com.interview.microsoft;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MicrosoftOnlineAssessment {
 
@@ -123,4 +122,97 @@ public class MicrosoftOnlineAssessment {
         }
         return true;
     }
+
+    /**
+     * @param str
+     * @return
+     */
+    public static String longest_subString_without_3_contiguous_occurancesOfLetter(String str) {
+
+        if(str.length() == 1) {
+            return str;
+        }
+
+        int contiguousCount = 1;
+        int backIndex = 0;
+        int frontIndex = 1;
+        int x = 0;
+        int y = 0;
+        int maxWidth = 0;
+
+        while(frontIndex < str.length()) {
+            if(str.charAt(frontIndex) == str.charAt(frontIndex - 1)) {
+                contiguousCount++;
+            } else {
+                contiguousCount = 1;
+            }
+
+            if(contiguousCount == 3) {
+                int width = frontIndex - backIndex;
+                if(maxWidth < width) {
+                    maxWidth = Math.max(maxWidth, width);
+                    x = backIndex;
+                    y = frontIndex;
+                }
+                backIndex = frontIndex - 1;
+                contiguousCount -= 1;
+            }
+
+            ++frontIndex;
+        }
+
+        int width = frontIndex - backIndex;
+        if(maxWidth < width) {
+            maxWidth = Math.max(maxWidth, width);
+            x = backIndex;
+            y = frontIndex;
+        }
+
+        return str.substring(x, y);
+    }
+
+    public static String lexicographically_smallest_string(String str) {
+        if(str.length() == 1) {
+            return str;
+        }
+
+        for (int i = 1; i < str.length(); i++) {
+            char previousChar = str.charAt(i - 1);
+            char curChar = str.charAt(i);
+            int prevAsciiValue = (int) previousChar;
+            int curAsciiValue = (int) curChar;
+            if(prevAsciiValue > curAsciiValue) {
+                return str.substring(0, i - 1) + str.substring(i, str.length());
+            }
+        }
+        return str.substring(0, str.length() - 1);
+    }
+
+
+    public static int min_deletions_to_make_frequency_for_each_letter_unique(String str) {
+        Map<Character, Integer> charCounterMapping = new HashMap<>();
+        HashSet<Integer> counterSet = new HashSet<>();
+        int result = 0;
+
+        for(int i = 0; i < str.length(); i++)  {
+            if(charCounterMapping.containsKey(str.charAt(i))) {
+                charCounterMapping.put(str.charAt(i), charCounterMapping.get(str.charAt(i)) + 1);
+            } else {
+                charCounterMapping.put(str.charAt(i), 1);
+            }
+        }
+
+        for (Integer counter : charCounterMapping.values()) {
+            int x = 0;
+            while(counter > x && counterSet.contains(counter - x)) {
+                x++;
+                result += 1;
+            }
+            if(counter != x) {
+                counterSet.add(counter - x);
+            }
+        }
+        return result;
+    }
+
 }

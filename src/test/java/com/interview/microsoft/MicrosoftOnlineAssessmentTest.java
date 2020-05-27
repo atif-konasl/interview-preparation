@@ -29,4 +29,28 @@ public class MicrosoftOnlineAssessmentTest {
         int actualResult = MicrosoftOnlineAssessment.min_adj_swap_palindrome(str);
         assertEquals(expectedResult, actualResult);
     }
+
+    @Test
+    public void test_longest_subString_without_3_contiguous_occurancesOfLetter() {
+        String str = "aaabba";
+        String expected = "aabba";
+        String actual = MicrosoftOnlineAssessment.longest_subString_without_3_contiguous_occurancesOfLetter(str);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_lexicographically_smallest_string() {
+        String str = "abcc";
+        String expected = "abc";
+        String actual = MicrosoftOnlineAssessment.lexicographically_smallest_string(str);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_min_deletions_to_make_frequency_for_each_letter_unique() {
+        String str = "eeeeffff";
+        int expected = 1;
+        int actual = MicrosoftOnlineAssessment.min_deletions_to_make_frequency_for_each_letter_unique(str);
+        assertEquals(expected, actual);
+    }
 }
