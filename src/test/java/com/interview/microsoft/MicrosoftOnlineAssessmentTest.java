@@ -10,7 +10,8 @@ public class MicrosoftOnlineAssessmentTest {
     public void test_NumbersWithEqualDigitSum_when_randomArray() {
         int[] inputArray = {51, 71, 17, 42};
         int expectedResult = 93;
-        int actualResult = MicrosoftOnlineAssessment.numbersWithEqualDigitSum(inputArray);
+        int actualResult = MicrosoftOnlineAssessment
+                .numbersWithEqualDigitSum(inputArray);
         assertEquals(expectedResult, actualResult);
     }
 
@@ -18,7 +19,8 @@ public class MicrosoftOnlineAssessmentTest {
     public void test_stringWithout_3_consecutiveLetters() {
         String str = "baaaaa";
         int expectedResult = 1;
-        int actualResult = MicrosoftOnlineAssessment.stringWithout_3_consecutiveLetters(str);
+        int actualResult = MicrosoftOnlineAssessment
+                .stringWithout_3_consecutiveLetters(str);
         assertEquals(expectedResult, actualResult);
     }
 
@@ -26,7 +28,8 @@ public class MicrosoftOnlineAssessmentTest {
     public void test_min_adj_swap_palindrome() {
         String str = "ntiin";
         int expectedResult = 1;
-        int actualResult = MicrosoftOnlineAssessment.min_adj_swap_palindrome(str);
+        int actualResult = MicrosoftOnlineAssessment
+                .min_adj_swap_palindrome(str);
         assertEquals(expectedResult, actualResult);
     }
 
@@ -34,7 +37,8 @@ public class MicrosoftOnlineAssessmentTest {
     public void test_longest_subString_without_3_contiguous_occurancesOfLetter() {
         String str = "aaabba";
         String expected = "aabba";
-        String actual = MicrosoftOnlineAssessment.longest_subString_without_3_contiguous_occurancesOfLetter(str);
+        String actual = MicrosoftOnlineAssessment
+                .longest_subString_without_3_contiguous_occurancesOfLetter(str);
         assertEquals(expected, actual);
     }
 
@@ -42,7 +46,8 @@ public class MicrosoftOnlineAssessmentTest {
     public void test_lexicographically_smallest_string() {
         String str = "abcc";
         String expected = "abc";
-        String actual = MicrosoftOnlineAssessment.lexicographically_smallest_string(str);
+        String actual = MicrosoftOnlineAssessment
+                .lexicographically_smallest_string(str);
         assertEquals(expected, actual);
     }
 
@@ -50,7 +55,17 @@ public class MicrosoftOnlineAssessmentTest {
     public void test_min_deletions_to_make_frequency_for_each_letter_unique() {
         String str = "eeeeffff";
         int expected = 1;
-        int actual = MicrosoftOnlineAssessment.min_deletions_to_make_frequency_for_each_letter_unique(str);
+        int actual = MicrosoftOnlineAssessment
+                .min_deletions_to_make_frequency_for_each_letter_unique(str);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_string_without_3_identical_consecutive_letter() {
+        String str = "a";
+        String expected = "a";
+        String actual = MicrosoftOnlineAssessment
+                .string_without_3_identical_consecutive_letter(str);
         assertEquals(expected, actual);
     }
 }

@@ -215,4 +215,35 @@ public class MicrosoftOnlineAssessment {
         return result;
     }
 
+
+    public static String string_without_3_identical_consecutive_letter(String str) {
+        if(str.length() == 1) {
+            return str;
+        }
+
+        int consecutiveCounter = 1;
+        int startIndex = -1;
+
+        for(int i = 1; i < str.length(); i++) {
+            if(str.charAt(i) == str.charAt(i - 1)) {
+                ++consecutiveCounter;
+                if(consecutiveCounter == 3) {
+                    startIndex = i;
+                }
+            } else {
+                if(consecutiveCounter >= 3) {
+                    str = str.substring(0, startIndex) + str.substring(i, str.length());
+                    consecutiveCounter = 1;
+                    startIndex = -1;
+                }
+            }
+        }
+
+        if(startIndex != -1) {
+            str = str.substring(0, startIndex);
+        }
+
+        return str;
+    }
+
 }
