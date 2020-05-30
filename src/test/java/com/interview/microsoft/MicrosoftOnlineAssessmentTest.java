@@ -68,4 +68,14 @@ public class MicrosoftOnlineAssessmentTest {
                 .string_without_3_identical_consecutive_letter(str);
         assertEquals(expected, actual);
     }
+
+
+    @Test
+    public void test_min_steps_to_make_piles_equal_heights() {
+        Integer[] array = {2, 4, 3, 5};
+        Integer[] expected = {5, 4, 3, 2};
+        Integer[] actual = MicrosoftOnlineAssessment
+                .min_steps_to_make_piles_equal_heights(array);
+        assertEquals("Should be same", expected, actual);
+    }
 }

@@ -246,4 +246,16 @@ public class MicrosoftOnlineAssessment {
         return str;
     }
 
+    public static Integer[] min_steps_to_make_piles_equal_heights(Integer[] array) {
+        int result = 0;
+        Comparator<Integer> descendingComparator = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2.compareTo(o1);
+            }
+        };
+        Arrays.sort(array, descendingComparator);
+        return array;
+    }
+
 }
